@@ -55,8 +55,10 @@ namespace tesseract_ocr_load_language_4_8
                             .GetAwaiter()
                             .GetResult();
                         File.WriteAllBytes(
-                            Path.Combine(folderName,
-                            $"{language}.traineddata"), bytes
+                            Path.Combine(
+                                folderName,
+                                $"{language}.traineddata"), 
+                            bytes
                         );
                     }
                 }

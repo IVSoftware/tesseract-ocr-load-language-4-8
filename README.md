@@ -24,8 +24,10 @@ If the caller is synchronous anyway, why not make the downloader synchronous, to
                         .GetAwaiter()
                         .GetResult();
                     File.WriteAllBytes(
-                        Path.Combine(folderName,
-                        $"{language}.traineddata"), bytes
+                        Path.Combine(
+                            folderName,
+                            $"{language}.traineddata"), 
+                        bytes
                     );
                 }
             }
