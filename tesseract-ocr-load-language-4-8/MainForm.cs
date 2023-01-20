@@ -48,8 +48,16 @@ namespace tesseract_ocr_load_language_4_8
                         .GetAwaiter()
                         .GetResult())
                     {
-                        var bytes = response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult();
-                        File.WriteAllBytes(Path.Combine(folderName, $"{language}.traineddata"), bytes);
+                        var bytes =
+                            response
+                            .Content
+                            .ReadAsByteArrayAsync()
+                            .GetAwaiter()
+                            .GetResult();
+                        File.WriteAllBytes(
+                            Path.Combine(folderName,
+                            $"{language}.traineddata"), bytes
+                        );
                     }
                 }
             }

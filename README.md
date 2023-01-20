@@ -14,10 +14,19 @@ If the caller is synchronous anyway, why not make the downloader synchronous, to
                 using (var response =
                     client
                     .GetAsync(uri)
-                    .GetAwaiter().GetResult())
+                    .GetAwaiter()
+                    .GetResult())
                 {
-                    var bytes = response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult();
-                    File.WriteAllBytes(Path.Combine(folderName, $"{language}.traineddata"), bytes);
+                    var bytes =
+                        response
+                        .Content
+                        .ReadAsByteArrayAsync()
+                        .GetAwaiter()
+                        .GetResult();
+                    File.WriteAllBytes(
+                        Path.Combine(folderName,
+                        $"{language}.traineddata"), bytes
+                    );
                 }
             }
         }
