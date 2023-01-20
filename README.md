@@ -1,5 +1,5 @@
 Your post states
->have a synchronous method [...] that calls an asynchronous method to download language files
+>I have a synchronous method [...] that calls an asynchronous method to download language files
 
 If the caller is synchronous anyway, why not make the downloader synchronous, too?
 
@@ -14,9 +14,9 @@ If the caller is synchronous anyway, why not make the downloader synchronous, to
                 using (var response =
                     client
                     .GetAsync(uri)
-                    .Result)
+                    .GetAwaiter().GetResult())
                 {
-                    var bytes = response.Content.ReadAsByteArrayAsync().Result;
+                    var bytes = response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult();
                     File.WriteAllBytes(Path.Combine(folderName, $"{language}.traineddata"), bytes);
                 }
             }
