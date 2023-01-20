@@ -1,5 +1,8 @@
- 
- 
+Your post states
+>have a synchronous method [...] that calls an asynchronous method to download language files
+
+If the caller is synchronous anyway, why not make the downloader synchronous, too?
+
     public void LoadLanguage(string folderName, string language)
     {
         Enabled = false;
@@ -23,3 +26,5 @@
             Enabled = true;
         }
     }
+
+I tested this and it seems to work [[clone](https://github.com/IVSoftware/tesseract-ocr-load-language-4-8.git)]. Does this get you any closer?
